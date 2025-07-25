@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shortzy - URL Shortener</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <nav>
+            <div class="logo">Shortzy</div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#featureSec">Features</a></li>
+                <li><a href="#">Github</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section class="hero">
+                <h1>Minimal URL Shortener<br> <span style="color: #585656;">Powered by Cloud</span></h1>
+                <p>A clean, high-performance URL shortening service built with modern cloud technologies. Perfect for
+                    developers who value simplicity.</p>
+
+                <div class="shortener-container">
+                    <div class="url-form">
+                        <div class="form-group">
+                            <input type="url" class="form-input" placeholder="Paste your long URL here..." id="longUrl">
+                            <button class="form-button" id="shortenBtn">Shorten</button>
+                        </div>
+                        <div class="result-container" id="resultContainer" style="display: none;">
+                            <div class="result-box">
+                                <div class="result-info">
+                                    <p><strong>Short URL:</strong> <span class="result-url" id="shortUrl"></span></p>
+                                    <p id="originalUrl"></p>
+                                    <p id="clickCount"></p>
+                                    <p id="createdAt"></p>
+                                </div>
+                                <button class="copy-button" id="copyBtn">Copy</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <section class="features" id="featureSec">
+                <h2 class="section-title">What Makes Shortzy Unique?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🔗</div>
+                        <h3 class="feature-title">Instant URL Shortening</h3>
+                        <p class="feature-desc">Shorten long URLs in milliseconds using a clean Spring Boot backend.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📈</div>
+                        <h3 class="feature-title">Click Tracking</h3>
+                        <p class="feature-desc">Tracks how many times a short link is clicked with real-time updates.
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🛡️</div>
+                        <h3 class="feature-title">Database-Backed</h3>
+                        <p class="feature-desc">All URLs stored securely in a MySQL database with timestamps.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Built with ❤️ by J. K. Malra</p>
+            <p style="margin-top: 0.5rem; font-size: 0.8rem;">© 2025 Shortzy. All rights reserved.</p>
+        </footer>
+    </div>
+    <script src="javascript/script.js"></script>
+</body>
+
+</html>
