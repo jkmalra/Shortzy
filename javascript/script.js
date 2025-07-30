@@ -1,3 +1,5 @@
+const BACKEND_URL = 'https://shortzy-backend.onrender.com';
+
 document.getElementById('shortenBtn').addEventListener('click', async function () {
     const longUrl = document.getElementById('longUrl').value.trim();
 
@@ -15,7 +17,7 @@ document.getElementById('shortenBtn').addEventListener('click', async function (
     };
 
     try {
-        const response = await fetch('http://localhost:8080/api/shorten', {
+        const response = await fetch(`${BACKEND_URL}/api/shorten`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -30,13 +32,12 @@ document.getElementById('shortenBtn').addEventListener('click', async function (
         const shortUrl = result.shortUrl;
         const shortCode = shortUrl.split('/').pop(); // Extract short code
 
-        // Set base info from response
         document.getElementById('shortUrl').textContent = shortUrl;
         document.getElementById('originalUrl').textContent = "Original URL: " + result.originalUrl;
         document.getElementById('createdAt').textContent = "Created At: " + new Date(result.createdAt).toLocaleString();
 
-        // Fetch actual click count from backend (live)
-        fetch(`http://localhost:8080/api/clicks/${shortCode}`)
+        // Live Click Count
+        fetch(`${BACKEND_URL}/api/clicks/${shortCode}`)
             .then(res => res.json())
             .then(clickCount => {
                 document.getElementById('clickCount').textContent = "Clicks: " + clickCount;
@@ -45,7 +46,6 @@ document.getElementById('shortenBtn').addEventListener('click', async function (
                 document.getElementById('clickCount').textContent = "Clicks: N/A";
             });
 
-        // Show result
         document.getElementById('resultContainer').style.display = 'block';
 
     } catch (err) {
